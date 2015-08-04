@@ -47,7 +47,7 @@ $( document ).ready( function () {
                                           .change( function () { updateScore( questionValue, this.checked ); } ) )
                                  .append( $( "<label>" )
                                           .attr( "for", question )
-                                          .html( questionText + " <small>(" + questionValue + " point" + ( questionValue == 1 ? "" : "s" ) + ")</small>" ) ) );
+                                          .html( questionText + " <small>(" + questionValue + "&nbsp;point" + ( questionValue == 1 ? "" : "s" ) + ")</small>" ) ) );
         } );
         $( "#test" ).append( $( "<div>" ).addClass( "score" ).text( "Current score: 0" ) );
         updateScore( 0, false ); // Just to refresh the bottom display
