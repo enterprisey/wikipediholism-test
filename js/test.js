@@ -15,7 +15,6 @@ $( document ).ready( function () {
                                  .text( "Mysteriously, I couldn't find the test onwiki at " + TEST_PAGE ) );
             return;
         }
-        console.log( JSON.stringify(data.query.pages[ pageId ].revisions[ 0 ]));
         revision = data.query.pages[ pageId ].revisions[ 0 ].revid;
         var testPageText = JSON.stringify( data.query.pages[ pageId ].revisions[ 0 ][ "*" ] );
         var testText = testPageText.match( /==The test==[\s\S]+==Interpreting your score==/ )[0];
