@@ -34,7 +34,7 @@ $( document ).ready( function () {
                      } ) );
         questions.forEach( function ( question ) {
             var questionText = question.replace( /\\n#/, "" ).replace( /\([\s\S]+?\)/, "" ).trim();
-            var questionValue = parseInt( question.match( /\(-?\d+?/ )[0].replace( /\(/, "" ) );
+            var questionValue = parseInt( question.match( /\(-?\d+/ )[0].replace( /\(/, "" ) );
             $( "#test" ).append( $( "<div>" )
                                  .append( $( "<input>" )
                                           .attr( "type", "checkbox" )
