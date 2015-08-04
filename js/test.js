@@ -16,10 +16,11 @@ $( document ).ready( function () {
             return;
         }
         revision = data.query.pages[ pageId ].revisions[ 0 ].revid;
-        var testPageText = JSON.stringify( data.query.pages[ pageId ].revisions[ 0 ][ "*" ] );
-        var testText = testPageText.match( /==The test==[\s\S]+==Interpreting your score==/ )[0];
-        testText = testText.replace( /==The test==/, "" ).replace( /==Interpreting your score==/, "" ).replace( /\\n/, "" );
-        var questions = testText.match( /\\n#.+?\s\(-?\d+.*?\)/g );
+        var questions = data.query.pages[ pageId ].revisions[ 0 ][ "*" ]
+            .replace( /{{[\s\S]+?}}/g, "" )
+            .match( /==The test==[\s\S]+==Interpreting your score==/ )[0]
+            .replace( /==The test==/, "" ).replace( /==Interpreting your score==/, "" ).replace( /\\n/, "" )
+            .match( /\n#.+?\s\(-?\d+.*?\)/g );
         $( "#loaded" ).text( "I just loaded " + questions.length + " questions. Let's go!" );
         $( "#test" )
             .append( $( "<div>" ).addClass( "score" ).text( "Current score: 0" ) )
@@ -33,8 +34,8 @@ $( document ).ready( function () {
                      } ) );
         questions.forEach( function ( question ) {
             var questionText = question
-                .replace( /\\n#/, "" )
-                .replace( /\([\s\S]+?\)/, "" )
+                .replace( /\n#/, "" )
+                .replace( /\(\d[\s\S]*?\)/, "" )
                 .replace( /\[\[([\s\S]+?\|)?/g, "" ).replace( /\]\]/g, "" )
                 .trim();
             var questionValue = parseInt( question.match( /\(-?\d+/ )[0].replace( /\(/, "" ) );
