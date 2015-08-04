@@ -32,7 +32,11 @@ $( document ).ready( function () {
                          updateScore( 0, false ); // trigger refresh
                      } ) );
         questions.forEach( function ( question ) {
-            var questionText = question.replace( /\\n#/, "" ).replace( /\([\s\S]+?\)/, "" ).trim();
+            var questionText = question
+                .replace( /\\n#/, "" )
+                .replace( /\([\s\S]+?\)/, "" )
+                .replace( /\[\[([\s\S]+?\|)?/g, "" ).replace( /\]\]/g, "" )
+                .trim();
             var questionValue = parseInt( question.match( /\(-?\d+/ )[0].replace( /\(/, "" ) );
             $( "#test" ).append( $( "<div>" )
                                  .append( $( "<input>" )
