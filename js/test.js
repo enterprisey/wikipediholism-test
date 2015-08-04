@@ -40,10 +40,10 @@ $( document ).ready( function () {
                                           .attr( "type", "checkbox" )
                                           .attr( "value", questionValue )
                                           .addClass( "mw-ui-checkbox" )
-                                          .attr( "id", question.substring( 0, 20 ) )
+                                          .attr( "id", question )
                                           .change( function () { updateScore( questionValue, this.checked ); } ) )
                                  .append( $( "<label>" )
-                                          .attr( "for", question.substring( 0, 20 ) )
+                                          .attr( "for", question )
                                           .html( questionText + " <small>(" + questionValue + " point" + ( questionValue == 1 ? "" : "s" ) + ")</small>" ) ) );
         } );
         $( "#test" ).append( $( "<div>" ).addClass( "score" ).text( "Current score: 0" ) );
