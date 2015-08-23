@@ -50,7 +50,7 @@ $( document ).ready( function () {
         questions.forEach( function ( question ) {
             var questionText = question
                 .replace( /\n#/, "" )
-                .replace( /\(\d[\s\S]*?\)/, "" )
+                .replace( /\(-?\d[\s\S]*?\)/, "" )
                 .replace( /\[\[([\s\S]+?\|)?/g, "" ).replace( /\]\]/g, "" )
                 .trim();
             var questionValue = parseInt( question.match( /\(-?\d+/ )[0].replace( /\(/, "" ) );
@@ -88,9 +88,5 @@ $( document ).ready( function () {
         $( "#after p#description" ).html( "Your score was " + score + " point" + ( score == 1 ? "" : "s" ) +
                                           "! You can display your score on your user page with this code for a" +
                                           " userbox: <tt>{{User Wikipediholic|" + score + "|" + revision + "}}</tt>." );
-    };
-
-    var initScoreTable = function ( wikitextTable ) {
-        
     };
 } );
