@@ -55,6 +55,7 @@ $( document ).ready( function () {
                 .trim();
             var questionValue = parseInt( question.match( /\(-?\d+/ )[0].replace( /\(/, "" ) );
             $( "#test" ).append( $( "<div>" )
+                                 .addClass( "question" )
                                  .append( $( "<input>" )
                                           .attr( "type", "checkbox" )
                                           .attr( "value", questionValue )

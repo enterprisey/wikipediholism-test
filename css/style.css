@@ -1,6 +1,8 @@
 body {
     font-family: sans-serif;
     color: #333;
+    max-width: 750px;
+    margin: 40px auto;
 }
 
 h2 {
@@ -30,4 +32,8 @@ a:hover {
 
 small {
     color: #555;
+}
+
+div.question + div.question {
+    padding: 5px 0;
 }
