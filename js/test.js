@@ -27,7 +27,7 @@ $( document ).ready( function () {
         // Initialize the "Interpret your score" table
         var scoreLines = pageText.match( /==Interpreting your score==[\s\S]+==Bonus questions==/ )[ 0 ]
             .replace( /==Interpreting your score==/, "" ).replace( /==Bonus questions==/, "" )
-            .match( /\| \d+ – \d+ \|\| [\S ]+/g );
+            .match( /\| \d+ –|- \d+ \|\| [\S ]+/g );
         scoreLines.forEach( function ( line ) {
             var score = parseInt( line.match( /\d+/g )[1] ) + 1;
             var text = line.replace( /\|[\s\S]+?\|\|/, "" );
