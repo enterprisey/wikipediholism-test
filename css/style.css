@@ -34,6 +34,6 @@ small {
     color: #555;
 }
 
-div.question + div.question {
+td {
     padding: 5px 0;
 }

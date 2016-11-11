@@ -46,6 +46,8 @@ $( document ).ready( function () {
                          updateScore( 0, false ); // trigger refresh
                      } ) );
 
+	var table = $( "<table>" ).appendTo( "#test" );
+
         // Display the questions
         questions.forEach( function ( question ) {
             var questionText = question
@@ -54,17 +56,18 @@ $( document ).ready( function () {
                 .replace( /\[\[([\s\S]+?\|)?/g, "" ).replace( /\]\]/g, "" )
                 .trim();
             var questionValue = parseInt( question.match( /\(-?\d+/ )[0].replace( /\(/, "" ) );
-            $( "#test" ).append( $( "<div>" )
-                                 .addClass( "question" )
-                                 .append( $( "<input>" )
-                                          .attr( "type", "checkbox" )
-                                          .attr( "value", questionValue )
-                                          .addClass( "mw-ui-checkbox" )
-                                          .attr( "id", question )
-                                          .change( function () { updateScore( questionValue, this.checked ); } ) )
-                                 .append( $( "<label>" )
-                                          .attr( "for", question )
-                                          .html( questionText + " <small>(" + questionValue + "&nbsp;point" + ( questionValue == 1 ? "" : "s" ) + ")</small>" ) ) );
+            table.append( $( "<tr>" )
+			  .append( $( "<td>" )
+                                   .append( $( "<input>" )
+                                            .attr( "type", "checkbox" )
+                                            .attr( "value", questionValue )
+                                            .addClass( "mw-ui-checkbox" )
+                                            .attr( "id", question )
+                                            .change( function () { updateScore( questionValue, this.checked ); } ) ) )
+			  .append( $( "<td>" )
+                                   .append( $( "<label>" )
+                                            .attr( "for", question )
+                                            .html( questionText + " <small>(" + questionValue + "&nbsp;point" + ( questionValue == 1 ? "" : "s" ) + ")</small>" ) ) ) );
         } );
         $( "#test" ).append( $( "<div>" ).addClass( "score" ).text( "Current score: 0" ) );
         updateScore( 0, false ); // Just to refresh the bottom display
