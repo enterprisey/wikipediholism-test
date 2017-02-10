@@ -91,6 +91,6 @@ $( document ).ready( function () {
 
         $( "#after p#description" ).html( "Your score was " + score + " point" + ( score == 1 ? "" : "s" ) +
                                           "! You can display your score on your <a href='https://en.wikipedia.org/wiki/Special:MyPage'>user page</a> with this code for a" +
-                                          " userbox: <tt>{{User Wikipediholic|" + score + "|" + revision + "}}</tt>." );
+                                          " userbox: <tt>{{User&nbsp;Wikipediholic|" + score + "|" + revision + "}}</tt>." );
     };
 } );
