@@ -1,8 +1,13 @@
 body {
-    font-family: sans-serif;
+    font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif;
     color: #333;
     max-width: 750px;
     margin: 40px auto;
+    background-color: #F3F3F3;
+}
+
+h1, h2, h3 {
+    margin-bottom: 0.25em;
 }
 
 h2 {
@@ -24,10 +29,9 @@ a:hover {
 .score {
     padding: 0.5em;
     border: thin solid gray;
-    border-radius: 2px;
     display: inline-block;
     margin: 1em 0.25em;
-    background-color: #EFE;
+    background-color: white;
 }
 
 small {
