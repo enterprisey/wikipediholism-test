@@ -28,10 +28,12 @@ a:hover {
 
 .score {
     padding: 0.5em;
-    border: thin solid gray;
     display: inline-block;
-    margin: 1em 0.25em;
-    background-color: white;
+    font-weight: bold;
+}
+
+button.reset {
+    padding: 0.5em;
 }
 
 small {

@@ -40,7 +40,7 @@ $( document ).ready( function () {
         $( "#test" )
             .append( $( "<div>" ).addClass( "score" ).text( "Current score: 0" ) )
             .append( $( "<button>" )
-                     .addClass( "mw-ui-button mw-ui-destructive mw-ui-quiet" )
+                     .addClass( "reset" )
                      .text( "Reset" )
                      .click( function () {
                          $( ".mw-ui-checkbox" ).prop( "checked", false );
@@ -120,7 +120,7 @@ $( document ).ready( function () {
         // Add another reset button, on the bottom
         $( "#test" )
             .append( $( "<button>" )
-                     .addClass( "mw-ui-button mw-ui-destructive" )
+                     .addClass( "reset" )
                      .text( "Reset score" )
                      .click( function () {
                          $( ".mw-ui-checkbox" ).prop( "checked", false );
