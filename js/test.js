@@ -21,14 +21,14 @@ $( document ).ready( function () {
         revision = data.query.pages[ pageId ].revisions[ 0 ].revid;
         var pageText = data.query.pages[ pageId ].revisions[ 0 ][ "*" ]
             .replace( /{{[\s\S]+?}}/g, "" );
-        var questions = pageText.match( /==The test==[\s\S]+==Interpreting your score==/ )[ 0 ]
-            .replace( /==The test==/, "" ).replace( /==Interpreting your score==/, "" )
+        var questions = pageText.match( /==\s*The test\s*==[\s\S]+==\s*Interpreting your score\s*==/ )[ 0 ]
+            .replace( /==\s*The test\s*==/, "" ).replace( /==\s*Interpreting your score\s*==/, "" )
             .match( /\n#.+?\s*\(-?\d+.*?\)/g );
         $( "#loaded" ).text( "I just loaded " + questions.length + " questions. Let's go!" );
 
         // Initialize the "Interpret your score" table
-        var scoreLines = pageText.match( /==Interpreting your score==[\s\S]+==Bonus questions==/ )[ 0 ]
-            .replace( /==Interpreting your score==/, "" ).replace( /==Bonus questions==/, "" )
+        var scoreLines = pageText.match( /==\s*Interpreting your score\s*==[\s\S]+==\s*Bonus questions\s*==/ )[ 0 ]
+            .replace( /==\s*Interpreting your score\s*==/, "" ).replace( /==\s*Bonus questions\s*==/, "" )
             .match( /\|\s*\d+\s*(?:–|-)\s*\d+ \|\| [\S ]+/g );
         scoreLines.forEach( function ( line ) {
             var score = parseInt( line.match( /\d+/g )[1] ) + 1;
